@@ -13,3 +13,25 @@ Content-Type: audio/mpeg
 
 < ./example.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/aeef7d87-00c5-4c69-b33d-a9441a64855b/transcription
+Content-Type: application/json
+
+{
+    "prompt": "alguma coisa"
+}
+
+###
+
+# @name generate-ai-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+    "videoId": "aeef7d87-00c5-4c69-b33d-a9441a64855b",
+    "temperature": 0.5,
+    "template": "Gere um resumo susinto da transcrição do vídeo informada a seguir: '''{transcription}'''"
+}
